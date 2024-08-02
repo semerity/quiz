@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+				Quiz
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="/style.css">
+	</head>
+	<body>
+		<div>
+			<div class="navbar">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/historique">Historique</a></li>
+					{% if app.user %}
+						{% if app.user.roles[0] == 'ROLE_ADMIN' %}
+							<li><a href="/admin">Admin</a></li>
+						{% endif %}
+						<li><a href="/profile">Profil</a></li>
+						<li><a href="/logout">Deconnexion</a></li>
+					{% else %}
+						<li><a href="/login">Connexion</a></li>
+					{% endif %}
+				</ul>
+			</div>
+			{% block content %}{% endblock %}
+			{% block historique %}{% endblock %}
+			{% block question %}{% endblock %}
+			{% block reponse %}{% endblock %}
+
+		</div>
+	</body>
+</html>

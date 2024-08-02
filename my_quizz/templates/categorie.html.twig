@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+	<div class="theme">
+
+		{% for cat in categories %}
+			<a class={{"categorie"}} href= "cat/{{cat.id}}">{{ cat.name }}</a>
+		{% endfor %}
+		
+	</div>
+
+{% endblock %}

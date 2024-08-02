@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+
+{% block question %}
+	<form method="post" action="/cat/{{id_cat}}/reponse">
+		<div class="question">
+
+			{% for qst in questions %}
+				<h2 class="title-question">{{qst.question}}</h2>
+
+				{% for rep in reponses %}
+
+					{% if qst.id == rep.getIdQuestion() %}
+						<input type="radio" name={{qst.id}} value={{rep.id}}>{{rep.reponse}}</br></br>
+			        {% endif %}
+
+		        {% endfor %}
+
+
+	        {% endfor %}
+        <input type="submit" value="Envoyer">
+    </form>
+        </div>
+{% endblock %}

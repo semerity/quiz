@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block content %}
+{# <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style> #}
+
+<div class="profil">
+
+    {% if app.user %}
+        {% if app.user.isverified %}
+            <h2>Email :</h2><p>{{app.user.email}}</p><a href="profile/change/mdp">changer d'email</a>
+            <hr>
+            <h2>Mot de passe</h2><a href="profile/change/mdp">Modifier le mot de passe</a>
+        {% else %}
+            <h2>verif ton email gros</h2>
+        {% endif %}
+    {% else %}
+        <h1 style="color: red">YOUR NOT SUPPOSED TO BE HERE</h1>
+    {% endif %}
+    {# <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code>/home/arnaud/acarepo/PROJET/quizz/my_quizz/src/Controller/ProfileController.php</code></li>
+        <li>Your template at <code>/home/arnaud/acarepo/PROJET/quizz/my_quizz/templates/profile/index.html.twig</code></li>
+    </ul> #}
+</div>
+{% endblock %}

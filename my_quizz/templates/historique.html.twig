@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block historique %}
+
+{% if session is defined %}
+    <div class="historique">
+
+    {% for item in session %}
+        <h2>{{item.getName()}}</h2>
+        {% for session_item in session_items %}
+            
+
+            {% if item.getId() == session_item.idCategorie%}
+            
+                    <p>Vous avez eu {{session_item.nbBonneRep}}/{{session_item.nbQuestion}} bonne réponse sur cette catégorie</p>
+
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    
+    </div>
+{% endif %}
+
+{% if historique is defined %}
+    <div class="historique">
+    
+    {% for cat in categorieList %}
+        <h2>{{cat.getName()}}</h2>
+        {% for hist in historique %}
+            {% if cat.getId() == hist.getIdCategorie() %}
+            
+                <p>Vous avez eu {{hist.getNbBonneRep()}}/{{hist.getNbQuestion()}} bonne réponse sur cette catégorie</p>
+
+            {% endif %}
+
+        {% endfor %}
+    
+    {% endfor %}
+
+    </div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content %}
+
+    <div>
+        {% if StatHisto is defined %}
+            <h2>Derniers résultats des quizz</h2>
+            <table style="margin-top:1rem; width:100%;">
+                <tr>
+                    <th style="border: 1px black solid;">Utilisateur</th>
+                    <th style="border: 1px black solid;">Categorie</th>
+                    <th style="border: 1px black solid;">Nombre de bonne réponse</th>
+                    <th style="border: 1px black solid;">Nombre de questions</th>
+                </tr>
+                {% if StatHisto[0] is defined %}
+                    <tr style="text-align: center;">
+                        <td style="border: 1px black solid;">{{StatHisto[0].name}}</td>
+                        <td style="border: 1px black solid;">{{StatHisto[0].email}}</td>
+                        <td style="border: 1px black solid;">{{StatHisto[0].nbBonneRep}}</td>
+                        <td style="border: 1px black solid;">{{StatHisto[0].nbQuestion}}</td>
+                    </tr>
+                {% endif %}
+                {% if StatHisto[1] is defined %}
+                    <tr style="text-align: center;">
+                        <td style="border: 1px black solid;">{{StatHisto[1].name}}</td>
+                        <td style="border: 1px black solid;">{{StatHisto[1].email}}</td>
+                        <td style="border: 1px black solid;">{{StatHisto[1].nbBonneRep}}</td>
+                        <td style="border: 1px black solid;">{{StatHisto[1].nbQuestion}}</td>
+                    </tr>
+                {% endif %}
+                {% if StatHisto[2] is defined %}
+                    <tr style="text-align: center;">
+                        <td style="border: 1px black solid;">{{StatHisto[2].name}}</td>
+                        <td style="border: 1px black solid;">{{StatHisto[2].email}}</td>
+                        <td style="border: 1px black solid;">{{StatHisto[2].nbBonneRep}}</td>
+                        <td style="border: 1px black solid;">{{StatHisto[2].nbQuestion}}</td>
+                    </tr>
+                {% endif %}
+            </table>
+        {% endif %}
+
+        {% if StatUser is defined %}
+            <h2>Derniers résultats des quizz</h2>
+            <table style="margin-top:1rem; width:100%; text-align: center;">
+                <tr>
+                    <th style="border: 1px black solid;">Utilisateur</th>
+                </tr>
+                {% if StatUser[0] is defined %}
+                    <tr>
+                        <td style="border: 1px black solid;">{{StatUser[0].email}}</td>
+                    </tr>
+                {% endif %}
+                {% if StatUser[1] is defined %}
+                    <tr>
+                        <td style="border: 1px black solid;">{{StatUser[1].email}}</td>
+                    </tr>
+                {% endif %}
+                {% if StatUser[2] is defined %}
+                    <tr>
+                        <td style="border: 1px black solid;">{{StatUser[2].email}}</td>
+                    </tr>
+                {% endif %}
+            </table>
+        {% endif %}
+
+    </div>
+
+{% endblock content %}

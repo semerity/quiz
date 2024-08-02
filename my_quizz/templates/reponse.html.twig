@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+{% set resultat = 0 %}
+{% set trueReponse = "" %}
+
+{% block reponse %}
+{# {{dump(reponses_post)}} #}
+<div class='question'>
+	{% for qst in questions %}
+		<h2 class="title-question">{{qst.question}}</h2>
+		{% for rep in reponses %}  
+			{% if qst.id == rep.getIdQuestion() %}
+				{% if rep.getReponseExpected() == 1 %}
+                <p>Réponse attendue : {{rep.reponse}}</p>
+				{% endif %}
+	        {% endif %}
+        {% endfor %}
+
+        {% for rep in reponses %}  
+
+			{% if qst.id == rep.getIdQuestion() %}
+                
+                {% for post in reponses_post %}
+
+                    {% if rep.getId() == post %}
+                        <p>Réponse donnée : {{rep.reponse}}</p>
+                    {% endif %}
+                    
+                {% endfor %}
+	        {% endif %}
+        {% endfor %}
+    {% endfor %}
+    <div>
+        <br><h2>Nombre de bonne réponse : {{nbRep}}</h2>
+        {# <a href="{{}}"> #}
+    </div>
+</div>
+{% endblock %}
